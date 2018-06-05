@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
+  
+<generatorConfiguration> 
+	<!-- <properties resource="util/generatorConfig.properties" />   -->
+    <classPathEntry location="D:\mysql-connector-java-5.1.39.jar" />
+    <context id="Mysql2Tables" targetRuntime="MyBatis3" defaultModelType="conditional">  
+    	<property name="suppressTypeWarnings" value="true" />
+    	<plugin type="org.mybatis.generator.plugins.CachePlugin" />
+    	<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+    	<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+    	<!-- 此处是将Example改名为Criteria 当然 想改成什么都行~ --> 
+    	<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Example" />
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<plugin  type="org.mybatis.generator.plugins.VirtualPrimaryKeyPlugin" /> 
+		<!-- <plugin type="com.shinowit.mybatis.plugin.SelectByPagePlugin" />
+		<plugin type="com.shinowit.mybatis.plugin.Struts2ActionPlugin" /> 
+        <plugin  type="org.mybatis.generator.plugins.MapperConfigPlugin">  
+            <property name="fileName" value="GeneratedMapperConfig.xml" />  
+            <property name="targetPackage" value="com.crm.util" />  
+            <property name="targetProject" value="mybatis-generator" />  
+        </plugin> -->
+	    <commentGenerator>  
+	         <!-- 去除自动生成的注释 -->  
+	         <property name="suppressAllComments" value="true" />  
+	    </commentGenerator> 
+	    
+	    <!-- 数据库的连接信息 -->
+	    <jdbcConnection driverClass="com.mysql.jdbc.Driver"  
+	        connectionURL="jdbc:mysql://localhost:3306/apiaccount"
+	        userId="test"
+	        password="123456">
+	    </jdbcConnection>
+	    
+	    <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"  
+	        connectionURL="jdbc:mysql://172.16.3.111.:3306/middle"  
+	        userId="root"  
+	        password="bibi">  
+	    </jdbcConnection> -->  
+	    
+	    <javaTypeResolver >  
+	      <property name="forceBigDecimals" value="false" />  
+	    </javaTypeResolver>  
+	    <javaModelGenerator targetPackage="com.wd.apiaccount.model.domain" targetProject="src">
+	      <property name="enableSubPackages" value="true" />  
+	      <property name="trimStrings" value="true" />  
+	    </javaModelGenerator>  
+	    <sqlMapGenerator targetPackage="com.wd.apiaccount.dao.mapper"  targetProject="src">
+	      <property name="enableSubPackages" value="true" />  
+	    </sqlMapGenerator>  
+	    <javaClientGenerator type="XMLMAPPER" targetPackage="com.wd.apiaccount.dao.mapper"  targetProject="src">
+	      <property name="enableSubPackages" value="true" />  
+	    </javaClientGenerator>
+	    <!-- <table schema="reportInfo" tableName="report_info" domainObjectName="ReportInfo" enableCountByExample="false" enableUpdateByExample="false"
+	           enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">  
+	    </table>   -->
+	     <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+		<table tableName="acct" domainObjectName="Acct"/>
+		<table tableName="acct_curr" domainObjectName="AcctCurr"/>
+		<table tableName="acct_flow" domainObjectName="AcctFlow"/>
+		<table tableName="acct_opncls" domainObjectName="AcctOpncls"/>
+		<table tableName="acct_tran" domainObjectName="AcctTran"/>
+		<table tableName="acct_type" domainObjectName="AcctType"/>
+  		<table tableName="pay_log" domainObjectName="PayLog"/>
+  		<table tableName="feifan_money_log" domainObjectName="FeifanMoneyLog"/>
+  		<table tableName="pay_status_update_log" domainObjectName="PayStatusUpdateLog"/>
+  </context>
+</generatorConfiguration>  
