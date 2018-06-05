@@ -20,7 +20,7 @@ public class MybatisGenerator {
             System.out.println("start generator ...");  
             List<String> warnings = new ArrayList<String>();  
             boolean overwrite = true; 
-            File configFile = new File(MybatisGeneratorUtil.class.getResource("/generatorConfig.xml").getFile());
+            File configFile = new File(MybatisGenerator.class.getResource("/generatorConfig.xml").getFile());
             ConfigurationParser cp = new ConfigurationParser(warnings);  
             Configuration config = cp.parseConfiguration(configFile);  
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);  
