@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
+  
+<generatorConfiguration> 
+	<!-- <properties resource="util/generatorConfig.properties" />   -->
+    <classPathEntry location="D:\workspace\mybatis-generator\lib\mysql-connector-java-5.1.17-bin.jar" />  
+    <context id="Mysql2Tables" targetRuntime="MyBatis3" defaultModelType="conditional">  
+    	<property name="suppressTypeWarnings" value="true" />
+    	<!--<plugin type="org.mybatis.generator.plugins.CachePlugin" />
+    	<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+    	<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+    	 此处是将Example改名为Criteria 当然 想改成什么都行~ --> 
+    	<!--<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<plugin  type="org.mybatis.generator.plugins.VirtualPrimaryKeyPlugin" /> 
+		 <plugin type="com.shinowit.mybatis.plugin.SelectByPagePlugin" />
+		<plugin type="com.shinowit.mybatis.plugin.Struts2ActionPlugin" /> 
+        <plugin  type="org.mybatis.generator.plugins.MapperConfigPlugin">  
+            <property name="fileName" value="GeneratedMapperConfig.xml" />  
+            <property name="targetPackage" value="com.crm.util" />  
+            <property name="targetProject" value="mybatis-generator" />  
+        </plugin> -->
+	    <commentGenerator>  
+	         <!-- 去除自动生成的注释 -->  
+	         <property name="suppressAllComments" value="true" />  
+	    </commentGenerator> 
+	   <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"  
+	        connectionURL="jdbc:mysql://172.16.1.101:3306/jilicard"  
+	        userId="root"  
+	        password="app">  
+	    </jdbcConnection>  -->  
+	    <jdbcConnection driverClass="com.mysql.jdbc.Driver"  
+	        connectionURL="jdbc:mysql://172.16.3.111:3306/report"  
+	        userId="root"  
+	        password="bibi">  
+	    </jdbcConnection>  
+	    <javaTypeResolver >  
+	      <property name="forceBigDecimals" value="false" />  
+	    </javaTypeResolver>  
+	    <javaModelGenerator targetPackage="com.crm.model" targetProject="src">  
+	      <property name="enableSubPackages" value="true" />  
+	      <property name="trimStrings" value="true" />  
+	    </javaModelGenerator>  
+	    <sqlMapGenerator targetPackage="com.crm.mapper"  targetProject="src">  
+	      <property name="enableSubPackages" value="true" />  
+	    </sqlMapGenerator>  
+	    <javaClientGenerator type="XMLMAPPER" targetPackage="com.crm.mapper"  targetProject="src">  
+	      <property name="enableSubPackages" value="true" />  
+	    </javaClientGenerator>  
+	    <!-- <table schema="reportInfo" tableName="report_info" domainObjectName="ReportInfo" enableCountByExample="false" enableUpdateByExample="false"  
+	           enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">  
+	    </table>   -->
+	     <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+  		<table tableName="store_value_report" domainObjectName="StoreValueReport" enableCountByExample="false" enableUpdateByExample="false"  
+	           enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/> 
+  </context>  
+</generatorConfiguration>  
